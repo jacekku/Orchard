@@ -1,0 +1,19 @@
+{
+  "name": "Orchard",
+  "version": "0.0.1",
+  "description": "Game about cutting down trees",
+  "private": true,
+  "author": "jacekku <kecajwy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fabric": "3.5.1",
+    "eslint": "6.8.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
