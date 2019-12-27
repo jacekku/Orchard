@@ -4,9 +4,12 @@
         "module": "CommonJS",
         "target": "ES5",
         "moduleResolution": "node",
-        "lib": ["es6", "dom", "es5"],
+        "lib": [
+            "es6",
+            "dom",
+            "es5"
+        ],
         "outDir": "dist",
-
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,

@@ -1,9 +1,14 @@
 import * as p5 from 'p5'
-import {  Tree} from "./tree";
-import {  GameObjectHandler } from './gameObjectHandler';
+import { Tree } from './tree';
+import { GameObjectHandler } from './gameObjectHandler';
+import { GraphicsHandler } from './graphicsHandler';
 
 const sketch = (p: p5) => {
   let buffer: p5.Graphics;
+
+  p.preload = () => {
+      GraphicsHandler.instance.loadImages(p)
+  }
 
   p.setup = () => {
     p.createCanvas(600, 600)
