@@ -1,34 +1,31 @@
-import {GameObject} from './gameObject'
-import p5 = require('p5');
+import { GameObject } from './gameObject'
+import * as p5 from 'p5'
 
 export class GameObjectHandler {
     private objects: GameObject[] = [];
-    private static singleton: GameObjectHandler;
+    private static singleton: GameObjectHandler
 
-    private constructor(){}
-
-    addObject(object:GameObject){
+    addObject(object: GameObject) {
         this.objects.push(object)
     }
-    removeObject(object:GameObject){
+    removeObject(object: GameObject) {
         this.objects = this.objects.filter(obj => obj !== object)
     }
-    show(p: p5.Graphics){
+    show(p: p5.Graphics) {
         this.objects.forEach(obj => {
             obj.show ? obj.show(p) : null
         });
     }
-    tick(){
+    tick() {
         this.objects.forEach(obj => {
             obj.show ? obj.tick() : null
         })
     }
 
-    static get instance(){
-        if(!GameObjectHandler.singleton){
+    static get instance(): GameObjectHandler {
+        if (!GameObjectHandler.singleton) {
             GameObjectHandler.singleton = new GameObjectHandler()
         }
         return GameObjectHandler.singleton
     }
-    
 }
