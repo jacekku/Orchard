@@ -12,6 +12,6 @@
         "outDir": "dist",
         "noImplicitAny": true,
         "removeComments": true,
-        "preserveConstEnums": true,
+        "preserveConstEnums": true
     }
 }
