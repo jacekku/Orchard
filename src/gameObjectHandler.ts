@@ -1,4 +1,4 @@
-import { GameObject } from './gameObject'
+import { GameObject } from './GameObject'
 import * as p5 from 'p5'
 
 export class GameObjectHandler {

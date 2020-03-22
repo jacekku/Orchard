@@ -1,28 +1,18 @@
 import * as p5 from 'p5'
-import { Tree } from './tree';
-import { GameObjectHandler } from './gameObjectHandler';
-import { GraphicsHandler } from './graphicsHandler';
+import { preload } from './mains/Preload'
+import { setup } from './mains/Setup'
+import { draw } from './mains/Draw'
+import { mouseClicked, keyPressed } from './mains/Input'
+import { ExtendedEvent } from './enums/ExtendedEvent'
 
 const sketch = (p: p5) => {
-  let buffer: p5.Graphics;
+  let buffer: p5.Graphics = null;
 
-  p.preload = () => {
-      GraphicsHandler.instance.loadImages(p)
-  }
-
-  p.setup = () => {
-    p.createCanvas(600, 600)
-    buffer = p.createGraphics(p.width, p.height);
-    buffer.noSmooth()
-    const t = new Tree(100, 100)
-  }
-
-  p.draw = () => {
-    p.background(128)
-    GameObjectHandler.instance.tick()
-    GameObjectHandler.instance.show(buffer)
-    p.image(buffer, 0, 0)
-  }
+  p.preload = () => preload(p)
+  p.setup = () => buffer = setup(p, buffer)
+  p.draw = () => draw(p, buffer)
+  p.mouseClicked = (event: Event) => mouseClicked(event)
+  p.keyPressed = () => keyPressed(p)
 }
 
 new p5(sketch)
