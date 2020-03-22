@@ -1,6 +1,6 @@
-import { GameObject } from './GameObject'
 import * as p5 from 'p5'
-import { GraphicsHandler } from './graphicsHandler'
+import { GraphicsHandler } from './GraphicsHandler'
+import { GameObject } from './GameObject'
 
 export class Tree extends GameObject {
     growthStage: number
@@ -9,7 +9,6 @@ export class Tree extends GameObject {
         super(x, y)
         this.growthStage = 0
     }
-
 
     show(p: p5) {
         const img: p5.Image = GraphicsHandler.instance.getImage('oak_tree', this.growthStage)

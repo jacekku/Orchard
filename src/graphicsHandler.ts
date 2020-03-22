@@ -1,10 +1,10 @@
 import * as p5 from 'p5'
-import { StagableImage, StagableImageConfiguration } from './stagableImage'
+import { StageableImage, StageableImageConfiguration } from './StageableImage'
 
 export class GraphicsHandler {
 
     private static singleton: GraphicsHandler
-    private images: StagableImage[]
+    private images: StageableImage[]
 
     constructor() {
         this.images = []
@@ -15,14 +15,14 @@ export class GraphicsHandler {
     }
 
     private handleJSON(json: any, p: p5) {
-        json.images.forEach((config: StagableImageConfiguration) => this.loadImage(config, p))
+        json.images.forEach((config: StageableImageConfiguration) => this.loadImage(config, p))
     }
 
-    private loadImage(configuration: StagableImageConfiguration, p: p5) {
+    private loadImage(configuration: StageableImageConfiguration, p: p5) {
         p.loadImage(configuration.file, loadedImage => this.addImage(loadedImage, configuration))
     }
-    private addImage(image: p5.Image, configuration: StagableImageConfiguration) {
-        this.images.push(new StagableImage(image, configuration))
+    private addImage(image: p5.Image, configuration: StageableImageConfiguration) {
+        this.images.push(new StageableImage(image, configuration))
     }
 
     getImage(name: string, stage: number = 0): p5.Image {

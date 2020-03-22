@@ -1,5 +1,6 @@
-import { GameObjectHandler } from './gameObjectHandler'
-import p5 = require('p5')
+import * as p5 from 'p5'
+import { GameObjectHandler } from './GameObjectHandler'
+import { GraphicsHandler } from './GraphicsHandler'
 
 export class GameObject {
     x: number
@@ -14,7 +15,8 @@ export class GameObject {
     }
 
     show(p: p5.Graphics) {
-        p.rect(this.x, this.y, 16, 16)
+        const img: p5.Image = GraphicsHandler.instance.getImage('no_texture')
+        p.image(img, this.x, this.y)
     }
     tick() {
         this.age += 1

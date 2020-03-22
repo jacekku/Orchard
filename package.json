@@ -1,6 +1,6 @@
 {
   "name": "orchard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Game about cutting down trees",
   "private": true,
   "author": "jacekku",
@@ -11,7 +11,8 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "@jacekku/library": "file:../library"
   },
   "scripts": {
     "build": "webpack"
