@@ -2,8 +2,9 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "module": "CommonJS",
-        "target": "ES5",
+        "target": "ES6",
         "moduleResolution": "node",
+        "sourceMap": true,
         "lib": [
             "es6",
             "dom",
@@ -12,6 +13,10 @@
         "outDir": "dist",
         "noImplicitAny": true,
         "removeComments": true,
-        "preserveConstEnums": true
-    }
+        "preserveConstEnums": true,
+    },
+    "include": [
+        "node_modules/@jacekku/library",
+        // "node_modules/p5"
+    ]
 }

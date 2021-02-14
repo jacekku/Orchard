@@ -1,36 +1,29 @@
-import { GameObject } from "./GameObject";
-import { GameEventListener, InputHandler } from "./InputHandler";
-import { EventType } from "./enums/EventType";
-import { ExtendedEvent } from "./enums/ExtendedEvent";
+import {
+    GameEventListener, InputHandler, GameObject,
+    EventType, ExtendedEvent
+} from "@jacekku/library";
 
-export class Player extends GameObject implements GameEventListener {
+export default class Player extends GameObject implements GameEventListener {
+
+    private movementSpeed: number = 1
 
     events: EventType[] = [
         EventType.KeyPressed
     ]
 
-    constructor(x:number,y:number){
-        super(x,y)
+    constructor(x: number, y: number) {
+        super(x, y)
         InputHandler.instance.register(EventType.KeyPressed, this)
     }
 
-    
+
     eventFired(event: ExtendedEvent): void {
-        switch (event.key){
-            case 'w': 
-                this.y -= 16
-                break
-            case 's':
-                this.y += 16
-                break
-            case 'a': 
-                this.x -= 16
-                break
-            case 'd':
-                this.x += 16
-                break
-            default:break;
-        }
+        console.log(event.key)
+        if (event.key == 'w') this.y -= this.movementSpeed
+        if (event.key == 's') this.y += this.movementSpeed
+        if (event.key == 'a') this.x -= this.movementSpeed
+        if (event.key == 'd') this.x += this.movementSpeed
+
     }
 }
 
